@@ -17,7 +17,7 @@ const useAppStore = create<AppStateType>()(
 	devtools(
 		persist(
 			(set, get) => ({
-				posts: [{ name: 'old post', avatarUrl: 'dd', message: 'dddd' }],
+				posts: [],
 				postsCount: () => get().posts.length,
 				addNewPost: (post) =>
 					set(
