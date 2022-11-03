@@ -9,18 +9,24 @@ type PostType = {
 
 type AppStateType = {
 	posts: PostType[];
-	add: (post: PostType) => void;
+	postsCount: () => number;
+	addNewPost: (post: PostType) => void;
 };
 
 const useAppStore = create<AppStateType>()(
 	devtools(
 		persist(
-			(set) => ({
-				posts: [
-					{ name: 'Goga', avatarUrl: 'sfa', message: 'dasdfa dasfsd' },
-					{ name: 'Toga', avatarUrl: 'DFS', message: 'deeeee eee' },
-				],
-				add: (post) => set((state) => ({ posts: [...state.posts, post] })),
+			(set, get) => ({
+				posts: [{ name: 'old post', avatarUrl: 'dd', message: 'dddd' }],
+				postsCount: () => get().posts.length,
+				addNewPost: (post) =>
+					set(
+						(state) => ({
+							posts: [post, ...state.posts],
+						}),
+						false,
+						'addNewPost'
+					),
 			}),
 			{
 				name: 'plteam-posts',
