@@ -9,10 +9,12 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"formik": "^2.2.9",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"styled-components": "^5.3.6",
 		"twin.macro": "^3.0.0-rc.5",
+		"yup": "^0.32.11",
 		"zustand": "^4.1.4"
 	},
 	"devDependencies": {
