@@ -24,6 +24,11 @@ const FormInput = styled.input<{ error?: string }>`
 		border-b
 		border-gray-500
 		bg-inherit	
+		rounded-sm
+		focus:outline
+		focus:outline-1
+		focus:outline-offset-2
+		focus:outline-green-500
 	`}
 	${(props) => props.error && tw`border-red-500`}
 `;
@@ -37,6 +42,10 @@ const MessageTextInput = styled.textarea<{ error?: string }>`
 		border-gray-500
 		rounded
 		bg-inherit
+		focus:outline
+		focus:outline-1
+		focus:outline-offset-4
+		focus:outline-green-500
 	`}
 	${(props) => props.error && tw`border-red-500`}
 `;
@@ -60,6 +69,11 @@ const FormSubmitButton = tw.button`
 	[&_svg]:transition-colors
 	rounded
 	transition-colors
+	focus:outline
+	focus:outline-1
+	focus:outline-offset-1
+	focus:outline-green-500
+	active:opacity-50
 `;
 
 const ErrorInfo = tw.label`
