@@ -23,14 +23,9 @@ const useAppStore = create<AppStateType>()(
 			(set, get) => ({
 				posts: [
 					{
-						name: 'Alice',
-						avatar: AlicePhoto,
-						message: 'This is first post',
-					},
-					{
-						name: 'Barrera',
-						avatar: BarreraPhoto,
-						message: 'This is second post',
+						name: 'Velazquez',
+						avatar: VelazquezPhoto,
+						message: 'This is fourth post',
 					},
 					{
 						name: 'Josefina',
@@ -38,9 +33,14 @@ const useAppStore = create<AppStateType>()(
 						message: 'This is third post',
 					},
 					{
-						name: 'Velazquez',
-						avatar: VelazquezPhoto,
-						message: 'This is fourth post',
+						name: 'Barrera',
+						avatar: BarreraPhoto,
+						message: 'This is second post',
+					},
+					{
+						name: 'Alice',
+						avatar: AlicePhoto,
+						message: 'This is first post',
 					},
 				],
 				postsCount: () => get().posts.length,
