@@ -1,23 +1,37 @@
-import React from 'react';
-import useAppStore from '@/store/store';
+import React, { useMemo } from 'react';
+import tw from 'twin.macro';
+import NewPostForm from '@/components/NewPostForm';
+import TopPosts from './components/TopPosts';
+import PostsList from './components/PostsList';
 import './App.css';
 
-function App() {
-	const posts = useAppStore((state) => state.posts);
-	const addNewPost = useAppStore((state) => state.add);
+const AppContainer = tw.main`
+	w-full
+	h-full
+	min-h-screen
+	p-6
+	bg-slate-200
+`;
 
-	console.log('🚀 ~ file: App.tsx ~ line 7 ~ posts', posts);
+const AppContent = tw.div`
+	grid
+	grid-cols-1
+	sm:grid-cols-2
+	lg:grid-cols-[minmax(0,_3fr)_minmax(0,_2fr)]
+	gap-6
+	max-w-7xl
+	mx-auto
+`;
+
+function App() {
 	return (
-		<div className='bg-slate-200'>
-			{posts.map((post) => post.name)}
-			<button
-				className='p-1 bg-red-100 mx-3 '
-				onClick={() =>
-					addNewPost({ name: 'New', avatarUrl: 'sdf', message: 'dd' })
-				}>
-				Add
-			</button>
-		</div>
+		<AppContainer>
+			<AppContent>
+				<NewPostForm />
+				<TopPosts />
+				<PostsList />
+			</AppContent>
+		</AppContainer>
 	);
 }
 
