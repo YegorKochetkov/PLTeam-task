@@ -7,7 +7,7 @@ import VelazquezPhoto from '@/assets/Velazquez.png';
 
 export type PostType = {
 	name: string;
-	avatarUrl?: string;
+	avatar?: string;
 	message: string;
 };
 
@@ -24,22 +24,22 @@ const useAppStore = create<AppStateType>()(
 				posts: [
 					{
 						name: 'Alice',
-						avatarUrl: AlicePhoto,
+						avatar: AlicePhoto,
 						message: 'This is first post',
 					},
 					{
 						name: 'Barrera',
-						avatarUrl: BarreraPhoto,
+						avatar: BarreraPhoto,
 						message: 'This is second post',
 					},
 					{
 						name: 'Josefina',
-						avatarUrl: JosefinaPhoto,
+						avatar: JosefinaPhoto,
 						message: 'This is third post',
 					},
 					{
 						name: 'Velazquez',
-						avatarUrl: VelazquezPhoto,
+						avatar: VelazquezPhoto,
 						message: 'This is fourth post',
 					},
 				],
