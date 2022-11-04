@@ -1,9 +1,13 @@
 import create from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
+import AlicePhoto from '@/assets/Alice.png';
+import BarreraPhoto from '@/assets/Barrera.png';
+import JosefinaPhoto from '@/assets/Josefina.png';
+import VelazquezPhoto from '@/assets/Velazquez.png';
 
-type PostType = {
+export type PostType = {
 	name: string;
-	avatarUrl: string;
+	avatarUrl?: string;
 	message: string;
 };
 
@@ -17,7 +21,28 @@ const useAppStore = create<AppStateType>()(
 	devtools(
 		persist(
 			(set, get) => ({
-				posts: [],
+				posts: [
+					{
+						name: 'Alice',
+						avatarUrl: AlicePhoto,
+						message: 'This is first post',
+					},
+					{
+						name: 'Barrera',
+						avatarUrl: BarreraPhoto,
+						message: 'This is second post',
+					},
+					{
+						name: 'Josefina',
+						avatarUrl: JosefinaPhoto,
+						message: 'This is third post',
+					},
+					{
+						name: 'Velazquez',
+						avatarUrl: VelazquezPhoto,
+						message: 'This is fourth post',
+					},
+				],
 				postsCount: () => get().posts.length,
 				addNewPost: (post) =>
 					set(
