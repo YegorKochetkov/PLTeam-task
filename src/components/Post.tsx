@@ -39,7 +39,11 @@ const Name = tw.span`
 `;
 
 const Message = tw.span`
-	truncate
+	overflow-hidden
+	text-ellipsis
+	[display:-webkit-box]
+	[-webkit-line-clamp:2]
+	[-webkit-box-orient:vertical]
 `;
 
 type PostPropsType = {
