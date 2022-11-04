@@ -10,7 +10,7 @@ const AddMessageForm = tw.form`
 	flex
 	flex-col
 	gap-3
-	sm:w-2/3
+	w-full
 	min-w-fit
 	[&_button]:bg-gray-300
 	[&_button:hover]:bg-gray-400
@@ -74,20 +74,23 @@ function NewPostForm() {
 	const formik = useFormik({
 		initialValues: {
 			name: '',
-			avatarUrl: '',
+			avatar: '',
 			message: '',
 		},
 		validationSchema: Yup.object({
 			name: Yup.string()
 				.trim()
-				.max(50, 'Имя должно быть не длиннее 50 символов')
+				.max(20, 'Имя должно быть не длиннее 20 символов')
 				.required('Это поле обязательно'),
 			message: Yup.string()
 				.trim()
 				.max(1000, 'Максимальная длина сообщения 1000 символов')
 				.required('Это поле обязательно'),
 		}),
-		onSubmit: (values) => {},
+		onSubmit: (values) => {
+			addNewPost(values);
+			formik.resetForm();
+		},
 	});
 
 	return (
@@ -111,8 +114,8 @@ function NewPostForm() {
 
 			<FormInput
 				type='text'
-				name='avatarUrl'
-				value={formik.values.avatarUrl}
+				name='avatar'
+				value={formik.values.avatar}
 				onChange={formik.handleChange}
 				placeholder='Введите ссылку на аватарку'
 			/>
