@@ -1,5 +1,4 @@
 import React from 'react';
-import { PostType } from '@/store';
 import tw from 'twin.macro';
 import UserPhoto from '/src/assets/user_icon.png';
 
