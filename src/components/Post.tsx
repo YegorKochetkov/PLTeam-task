@@ -57,10 +57,8 @@ const Post = ({ avatar, message, name }: PostPropsType) => {
 		<motion.div
 			initial={{ scale: 0 }}
 			animate={{ scale: 1 }}
-			exit={{ scale: 0 }}
-			transition={{
-				layout: { duration: 0.3 },
-			}}
+			exit={{ scale: 0, position: 'absolute' }}
+			transition={{ duration: 0.3 }}
 			style={{ originY: 0 }}
 			layout>
 			<PostItem>
