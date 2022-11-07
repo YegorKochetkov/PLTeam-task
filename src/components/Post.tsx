@@ -1,5 +1,6 @@
 import React from 'react';
 import tw from 'twin.macro';
+import { motion } from 'framer-motion';
 import UserPhoto from '/src/assets/user_icon.png';
 
 const PostItem = tw.li`
@@ -53,15 +54,25 @@ type PostPropsType = {
 
 const Post = ({ avatar, message, name }: PostPropsType) => {
 	return (
-		<PostItem>
-			<Avatar>
-				<img src={avatar ? avatar : UserPhoto} alt='User' />
-			</Avatar>
-			<MessageContainer>
-				<Name>{name ? name : null}</Name>
-				<Message>{message}</Message>
-			</MessageContainer>
-		</PostItem>
+		<motion.div
+			initial={{ scale: 0 }}
+			animate={{ scale: 1 }}
+			exit={{ scale: 0 }}
+			transition={{
+				layout: { duration: 0.3 },
+			}}
+			style={{ originY: 0 }}
+			layout>
+			<PostItem>
+				<Avatar>
+					<img src={avatar ? avatar : UserPhoto} alt='User' />
+				</Avatar>
+				<MessageContainer>
+					<Name>{name ? name : null}</Name>
+					<Message>{message}</Message>
+				</MessageContainer>
+			</PostItem>
+		</motion.div>
 	);
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import tw from 'twin.macro';
 import useAppStore from '@/store';
 import Post from './Post';
+import { AnimatePresence } from 'framer-motion';
 
 const Posts = tw.ul`
 	flex
@@ -19,14 +20,16 @@ function PostsList() {
 	return (
 		<Posts>
 			<TotalAmount>Объявлений: {postCount()}</TotalAmount>
-			{posts.map((post, index) => (
-				<Post
-					avatar={post.avatar}
-					name={post.name}
-					message={post.message}
-					key={post.name + index}
-				/>
-			))}
+			<AnimatePresence>
+				{posts.map((post, index) => (
+					<Post
+						avatar={post.avatar}
+						name={post.name}
+						message={post.message}
+						key={post.name + index}
+					/>
+				))}
+			</AnimatePresence>
 		</Posts>
 	);
 }

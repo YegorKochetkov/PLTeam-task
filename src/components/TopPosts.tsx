@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import useAppStore from '@/store';
 import tw from 'twin.macro';
 import Post from './Post';
+import { AnimatePresence } from 'framer-motion';
 
 const Posts = tw.ul`
 	flex
@@ -17,13 +18,15 @@ function TopPosts() {
 
 	return (
 		<Posts>
-			{topPosts.map((post, index) => (
-				<Post
-					avatar={post.avatar}
-					message={post.message}
-					key={post.name + index}
-				/>
-			))}
+			<AnimatePresence>
+				{topPosts.map((post, index) => (
+					<Post
+						avatar={post.avatar}
+						message={post.message}
+						key={post.name + index}
+					/>
+				))}
+			</AnimatePresence>
 		</Posts>
 	);
 }
