@@ -12,9 +12,9 @@ const AddMessageForm = tw.form`
 	gap-3
 	w-full
 	min-w-fit
-	[&_button]:bg-gray-300
-	[&_button:hover]:bg-gray-400
-	[&_button:hover]:cursor-pointer
+	[_button]:bg-gray-300
+	[_button:hover]:bg-gray-400
+	[_button:hover]:cursor-pointer
 `;
 
 const FormInput = styled.input<{ error?: string }>`
@@ -62,11 +62,11 @@ const FormSubmitButton = tw.button`
 	text-sm
 	text-gray-600
 	hover:text-black
-	[&_svg]:hover:fill-black
-	[&_svg]:h-5
-	[&_svg]:w-auto
-	[&_svg]:fill-gray-600
-	[&_svg]:transition-colors
+	[_svg]:hover:fill-black
+	[_svg]:h-5
+	[_svg]:w-auto
+	[_svg]:fill-gray-600
+	[_svg]:transition-colors
 	rounded
 	transition-colors
 	focus:outline
